@@ -1,0 +1,10 @@
+data = {}
+data['P_End'] = 1
+data['P_Down'] = 2
+data['P_Next'] = 3
+data['P_Left'] = 4
+data['P_Begin'] = 5
+data['P_Right'] = 6
+data['P_Home'] = 7
+data['P_Up'] = 8
+data['P_Page_Up'] = 9
